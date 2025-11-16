@@ -1,0 +1,56 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Car"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- 3D表示用 -->
+        <Viewport3D Name="viewport">
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="camera"
+                                   Position="0, 10, 20"
+                                   LookDirection="0, -5, -20"
+                                   UpDirection="0, 1, 0"
+                                   FieldOfView="60"/>
+            </Viewport3D.Camera>
+
+            <!-- 光源 -->
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <DirectionalLight Color="White" Direction="-0.3,-1,-0.5"/>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+
+            <!-- 車モデル -->
+            <ModelVisual3D x:Name="carModel" x:FieldModifier="Public"/>
+            <!-- 地面 -->
+            <ModelVisual3D x:Name="groundModel" x:FieldModifier="Public"/>
+        </Viewport3D>
+
+        <!-- スピード表示ラベル（Viewport3Dの前面に重なる） -->
+        <Label x:Name="lblSpeed" Content="Speed: 0" FontSize="16" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+        <Label x:Name="lblPosY" Content="PosY  : 0" FontSize="16" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35,0,0"/>
+
+        <!-- UI右側に車ボタンを配置するStackPanel-->
+        <StackPanel x:Name="spCarButtons"
+            Orientation="Vertical"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="10"/>
+
+        <!-- 操作ボタン -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+            <!--<Button Name="btnSpawnCar" Content="new car" Width="100" Margin="5"/>-->
+            <Button Name="btnSpawnFlyingCar" Content="new flyingcar" Width="100" Margin="5"/>
+            <Button Name="btnLeft" Content="← 左" Width="80" Margin="5"/>
+            <Button Name="btnRight" Content="右 →" Width="80" Margin="5"/>
+            <Button Name="btnAccel" Content="加速" Width="80" Margin="5"/>
+            <Button Name="btnBrake" Content="減速" Width="80" Margin="5"/>
+            <Button Name="btnAscent" Content="上昇" Width="80" Margin="5"/>
+            <Button Name="btnDescent" Content="下降" Width="80" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
