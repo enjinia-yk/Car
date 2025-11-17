@@ -14,30 +14,6 @@ Public Class Car
     Private group As Model3DGroup
 
     Public Sub New(visual As ModelVisual3D)
-        '''_visual = visual
-        '''' 車のモデルを作る（立方体で簡易表現）
-        '''Dim mesh As New MeshGeometry3D()
-        '''mesh.Positions = New Point3DCollection From {
-        '''    New Point3D(-1, 0, 1), New Point3D(1, 0, 1), New Point3D(1, 1, 1), New Point3D(-1, 1, 1),
-        '''    New Point3D(-1, 0, -1), New Point3D(1, 0, -1), New Point3D(1, 1, -1), New Point3D(-1, 1, -1)
-        '''}
-        '''mesh.TriangleIndices = New Int32Collection From {
-        '''    0, 1, 2, 0, 2, 3,
-        '''    1, 5, 6, 1, 6, 2,
-        '''    5, 4, 7, 5, 7, 6,
-        '''    4, 0, 3, 4, 3, 7,
-        '''    3, 2, 6, 3, 6, 7,
-        '''    4, 5, 1, 4, 1, 0
-        '''}
-
-        '''Dim material As New DiffuseMaterial(New SolidColorBrush(Colors.Red))
-        '''Dim geometry As New GeometryModel3D(mesh, material)
-        '''_visual.Content = geometry
-
-        '''' 初期位置更新
-        '''UpdateTransform()
-        '''
-
         _visual = visual
 
         ' 3Dモデル全体を格納するGroup
